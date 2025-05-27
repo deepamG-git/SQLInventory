@@ -436,7 +436,7 @@ DECLARE @db NVARCHAR(50)
 DECLARE @sql NVARCHAR(max)
 
 DECLARE dbsize CURSOR
-FOR SELECT QUOTENAME(NAME) FROM sys.databases WHERE NAME NOT IN (''master'',''model'',''msdb'',''tempdb'')
+FOR SELECT QUOTENAME(NAME) FROM sys.databases WHERE NAME NOT IN (''master'',''model'',''msdb'',''tempdb'') AND state = 0
 
 OPEN dbsize
 FETCH NEXT FROM dbsize INTO @db
